@@ -1,6 +1,5 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import Bg01 from '../../assets/images/bg01.png';
-import './AboutUs.css';
 import { useEffect, useState } from "react";
 
 function ProductsSercvices(){
