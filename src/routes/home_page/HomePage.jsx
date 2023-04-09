@@ -89,12 +89,12 @@ function Item(props)
                     // m: 4,
                     p: 4,
                     borderRadius: 8,
-                    background: '#8888'
+                    background: '#8884'
                 }}>
                     <h2>{props.item.name}</h2>
                     <p>{props.item.description}</p>
 
-                    <Button className='CheckButton' variant="contained"
+                    <Button className='CheckButton' variant="contained" color="secondary"
                     sx={{
                         // background: 'red',
                         // color: '#168085',
