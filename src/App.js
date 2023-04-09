@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 
 const theme = createTheme({
   typography: {
-      // fontFamily: 'Lora, serif',
+      fontFamily: 'Lora, serif',
       // fontFamily: 'Alkatra, cursive',
   },
   palette: {
