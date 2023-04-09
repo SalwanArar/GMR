@@ -78,9 +78,8 @@ function Header() {
                         aria-controls="menu-appbar"
                         aria-haspopup="true"
                         onClick={ handleOpenNavMenu }
-                        // color="#3A3A3C"
                         >
-                            <MenuIcon />
+                            <MenuIcon color='secondary' sx={{ display: Boolean(anchorElNav)? 'none': ''}} />
                         </IconButton>
                         <SwipeableDrawer
                         anchor='top'
@@ -88,14 +87,17 @@ function Header() {
                         open={Boolean(anchorElNav)}
                         onClose={handleCloseNavMenu}
                         onOpen={handleOpenNavMenu}
-                        sx={{
+                        BackdropProps={{
+                          style: { backgroundColor: 'transparent'}
+                        }}
+                        PaperProps={{
+                          style: { backgroundColor: 'transparent'}
                         }}
                         >
                             <Box
                             component='div'
                             sx={{
-                                background: '#3A3A3C',
-                                // bgcolor: 'background',
+                                background: '#3A3A3CEE',
                                 height: '100vh',
                                 display: 'flex',
                                 alignItems: 'top',
