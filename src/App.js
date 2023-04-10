@@ -8,10 +8,15 @@ import HomePage from './routes/home_page/HomePage';
 import Footer from './components/footer/Footer';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
+import AboutUsPage from './routes/about_page/AboutUsPage';
 const router = createBrowserRouter([
     {
         path: "/",
         element: <HomePage />,
+    },
+    {
+        path: "/about",
+        element: <AboutUsPage />,
     },
 ]);
 

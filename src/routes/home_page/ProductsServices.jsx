@@ -1,98 +1,110 @@
-import { Box, Typography } from "@mui/material";
-import Bg01 from '../../assets/images/bg01.png';
-import { useEffect, useState } from "react";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
+
+
+import IronRecycling from '../../assets/images/IronRecycling.jpeg';
+import AluminiumRecycling from '../../assets/images/AluminiumJunk.webp';
+import CopperRecycling from '../../assets/images/CopperRecycling.jpg';
+import BatteriesRecycling from '../../assets/images/BatteryRecycling.png';
+
+
+
+const products = [
+    {
+        title: 'Iron Recycling',
+        info: 'Iron recycling is the process of reusing iron materials to make new products, which helps to reduce waste and conserve natural resources. By recycling iron, we can reduce the environmental impact of mining and manufacturing new iron products.',
+        img: IronRecycling,
+        link: '',
+    },
+    {
+        title: 'Battaries Recycling',
+        info: 'Recycling batteries helps prevent toxic chemicals from polluting the environment, while also conserving valuable materials such as copper and nickel.',
+        img: BatteriesRecycling,
+        link: '',
+    },
+    {
+        title: 'Copper Recycling',
+        info: 'Copper recycling helps reduce waste and conserve natural resources, as copper can be reused without losing its quality. It also helps reduce greenhouse gas emissions associated with mining and production.',
+        img: CopperRecycling,
+        link: '',
+    },
+    {
+        title: 'Aluminium Recycling',
+        info: 'Recycling Aluminum saves energy and resources while reducing waste in landfills.',
+        img: AluminiumRecycling,
+        link: '',
+    },
+];
+
+function Product ({product}) {
+    return (
+        <Box
+        sx={{
+            height: '40vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundImage: `url(${product.img})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundColor: 'rgba(70, 70, 70, 1)',
+            backgroundBlendMode: 'multiply',
+        }}>
+            <Typography
+            variant="h6"
+            component={'h6'}
+            color={'secondary'}
+            fontWeight={900}
+            fontSize={'1.2rem'}
+            >
+                { product.title }
+            </Typography>
+            <Typography
+            variant="body1"
+            component={"p"}
+            color={ 'text.primary' }
+            sx={{
+                mx: { md: 10, xs: 5 },
+                mb: 3,
+                textAlign: 'justify',
+            }}
+            >
+                { product.info }
+            </Typography>
+            <Button
+            variant="text"
+            color="primary">
+                <Typography
+                variant="button"
+                sx={{
+                    fontWeight: '600',
+                    textDecoration: 'underline', 
+                    textTransform: 'capitalize',
+                }}>
+                    Learn More
+                </Typography>
+            </Button>
+        </Box>
+    );
+}
 
 function ProductsSercvices(){
-    const [skew, setSkew] = useState(20);
-    const movementSpeed = 3000;
-  
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        setSkew((prevSkew) => -prevSkew);
-      }, movementSpeed);
-  
-      return () => clearInterval(intervalId);
-    }, []);
     return(
-            <Box
-            sx={{
-                mx: { md:'auto', xs: 4 },
-                display: { md:'flex' },
-                maxWidth: 'md',
-                justifyContent: 'space-between',
-                alignItems: 'end',
-                gap: 10,
-                mt: 8,
-                textAlign: { xs: 'center' },
-            }}>
-                <Box
+        <Box component={'div'} sx={{ mt: 5 }}>
+            <Grid container 
                 sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'self-start',
+                    background: '#a532',
                 }}>
-                    <Box sx={{ position: 'relative', m: 2 }}>
-                        <Box
-                            sx={{
-                            background: 'white',
-                            height: '2.5rem',
-                            width: '10rem',
-                            transform: `skew(${skew}deg)`,
-                            WebkitTransform: `skew(${skew}deg)`,
-                            MozTransform: `skew(${skew}deg)`,
-                            OTransform: `skew(${skew}deg)`,
-                            transition: `transform ${movementSpeed}ms ease-in-out`,
-                            }}
-                        />
-                            <Typography
-                                variant="subtitle1"
-                                color="primary"
-                                fontWeight={700}
-                                sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-                            >
-                                About Us
-                            </Typography>
-                        </Box>
-                        <Typography
-                        variant="h1"
-                        component={"h1"}
-                        color={ 'secondary' }
-                        fontSize={'1.8rem'}
-                        align="left"
-                        sx={{ mb: 6, mt: 2 }}>
-                        Recycling and processing of metal waste for material recovery
-                        </Typography>
-                        <Typography
-                        variant="body1"
-                        color={'text.primary'}
-                        sx={{
-                            mb: 2 ,
-                            textAlign: { xs: 'left' }
-                        }}>
-                            The idea began in 2017 to work on finding 
-                            solutions to preserve natural resources, protect the 
-                            environment from pollution and greenhouse gases, 
-                            and reduce global warming, in order to be among 
-                            the contributors to maintaining a clean, pollution-free and sustainable environment.
-                            Based on this principle, we have established the 
-                            <Typography
-                            variant="body1"
-                            component={'span'}
-                            color='primary'
-                            fontWeight='700'>
-                                {' GMR '}
-                            </Typography>Company to embody this idea on the ground.
-                        </Typography>
-                </Box>
-                    <Box
-                component={ 'img' }
-                src={ Bg01 }
-                sx={{
-                    width: '100%'
-                }}
-                />
-            </Box>
+                    {
+                        products.map((product)=>
+                            <Grid item xl={3} sm={6} xs={12}>
+                                <Product product={product}/>
+                            </Grid>
+                        )
+                    }
+            </Grid>
+        </Box>
     );
 }
 

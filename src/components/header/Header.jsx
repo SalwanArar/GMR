@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Logo from '../../assets/images/logo-light.png';
 import { Clear } from '@mui/icons-material';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Home', 'About Us', 'Contact'];
 
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,7 +27,6 @@ function Header() {
                 xs: 'relative',
                 md:"sticky"
             },
-            // background: 'secondary',
             py: 1,
         }}>
             <Container maxWidth="xl">
