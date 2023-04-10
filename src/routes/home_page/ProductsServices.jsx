@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Bg01 from '../../assets/images/bg01.png';
 import { useEffect, useState } from "react";
 

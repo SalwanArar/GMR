@@ -5,7 +5,6 @@ import Bg1 from '../../assets/images/bg04.png';
 import Bg2 from '../../assets/images/bg02.png';
 import Bg3 from '../../assets/images/bg03.png';
 import ProductsSercvices from "./ProductsServices";
-import { useState } from "react";
 
 import Bg01 from '../../assets/images/bg01.png';
 function HomePage() {
@@ -50,7 +49,7 @@ function HomePage() {
                 <ProductsSercvices />
             </Container>
             
-            <Typography variant="h4" component={ 'h2' } color={'text.primary'} sx={{ mb: 5 }}>
+            <Typography variant="h3" component={ 'h2' } color={'text.primary'} sx={{ mb: 5, mt: 10, textAlign: 'center' }}>
                     Products
                 </Typography>
             <Grid container 
@@ -61,14 +60,31 @@ function HomePage() {
                 sx={{
                     background: '#2532',
                 }}>
-                    <Item1 />
+                    <Product />
                 </Grid>
                 <Grid item md={6} xs={12}
                 sx={{
-                    // border: 'solid blue',
                     background: '#2532',
                 }}>
-                    <Item1 />
+                    <Product />
+                </Grid>
+                <Grid item md={4} xs={12}
+                sx={{
+                    background: '#2532',
+                }}>
+                    <Product />
+                </Grid>
+                <Grid item md={4} xs={12}
+                sx={{
+                    background: '#2532',
+                }}>
+                    <Product />
+                </Grid>
+                <Grid item md={4} xs={12}
+                sx={{
+                    background: '#2532',
+                }}>
+                    <Product />
                 </Grid>
             </Grid>
         </Box>
@@ -76,97 +92,54 @@ function HomePage() {
 }
 
 
-function Item1 () {
-    const styles = {
-    root: {
-        width: '100%',
-        height: 500,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background: `url(${Bg01}) no-repeat center center`,
-        backgroundSize: 'cover',
-        backgroundColor: 'rgba(255,0,0,0)',
-    },
-    text: {
-        // color: 'white',
-        // fontSize: '1rem',
-        // fontWeight: 'bold',
-        // textAlign: 'center',
-        mx: 4,
-        // textShadow: '2px 2px #000000',
-    },
-  };
+function Product () {
     return (
-        <Box sx={styles.root}>
+        <Box
+        sx={{
+            height: '40vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundImage: `url(${Bg01})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundColor: 'rgba(128, 128, 128, 0.5)',
+            backgroundBlendMode: 'multiply',
+        }}>
             <Typography
             variant="h6"
-            component={"h6"}
+            component={'h6'}
+            color={'text.primary'}
+            fontWeight={900}
+            fontSize={'2rem'}
+            >
+                Title
+            </Typography>
+            <Typography
+            variant="body1"
+            component={"p"}
             color={ 'text.primary' }
-            sx={{ m: 4, textAlign: 'justify' }}
+            sx={{
+                mx: {md: 10, xs:5},
+                mb: 5,
+                textAlign: 'justify',
+            }}
             >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing. Eu consequat ac felis donec et odio pellentesque diam.
             </Typography>
+            <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+                fontWeight: '700',
+                border: 'solid 2px',
+                mx: 'auto'
+            }}>
+                More Info
+            </Button>
         </Box>
-        // <Box
-        // sx={{
-            // display: 'contents',
-            // justifyContent: 'center',
-            // alignItems: 'center',
-        // }}>
-        //     <Typography
-        //     sx={{
-        //         background: `url(${Bg01}) no-repeat center`,
-        //         backgroundSize: 'cover',
-        //         backgroundColor: 'red',
-        //         textAlign: 'center',
-        //         py: 'auto',
-        //         color: 'white',
-        //         m: 0,
-        //         p: 0,
-        //         width: '100%',
-        //         height: 600,
-        //     }}>
-        //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing. Eu consequat ac felis donec et odio pellentesque diam.
-        //     </Typography>
-        // </Box>
-        // <Box
-        // sx={{
-        //     display: 'flex',
-        //     justifyContent: 'center',
-        //     alignItems: 'center',
-        //     // border: 'solid red',
-        //     p: 4,
-        //     textAlign: 'center',
-        //     background: 'white',
-        // }}
-        // >
-        //     <Box
-        //     component={'img'}
-        //     src={Bg01}
-        //     alt={Bg01}
-        //     sx={{
-        //         width: '100%',
-        //         maxWidth: 400,
-        //         borderTop: {md: '2rem solid #3A3A3C22'},
-        //         borderLeft: {md: '2rem solid #3A3A3C22'},
-        //         borderRadius: '4px',
-        //         // border: 'solid grey 3rem',
-        //         objectFit: 'cover',
-        //         overflow: 'hidden',
-        //         mb: 3,
-        //     }}
-        //     />
-        //     <Typography
-        //     variant="h6"
-        //     sx={{
-        //         // border: 'solid green',
-        //         flexWrap: '1',
-        //         textAlign: 'start', 
-        //     }}>
-        //         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing. Eu consequat ac felis donec et odio pellentesque diam.
-        //     </Typography>
-        // </Box>
     );
 }
 
