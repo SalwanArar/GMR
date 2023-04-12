@@ -42,10 +42,13 @@ function CompanyValues() {
             And no matter what life brings us, we want to make it something wonderful We, GMR, this is our general position and the most important thing that can be said about us.
             </Typography>
             <Quote>
-            We at
-            <Typography component={"span"} color={"primary"} fontWeight={700}>{" GMR "}</Typography>
-            believe in the importance of investing in the recycling sectors for several reasons, the most important of which is to preserve non-renewable natural resources and to secure a sustainable future free of emissions and pollution. And through development in the field of recycling using renewable energies, we guarantee a stable economic return and achieve the highest profits.
+                We at
+                <Typography component={"span"} color={"primary"} fontWeight={700}>{" GMR "}</Typography>
+                believe in the importance of investing in the recycling sectors for several reasons, the most important of which is to preserve non-renewable natural resources and to secure a sustainable future free of emissions and pollution. And through development in the field of recycling using renewable energies, we guarantee a stable economic return and achieve the highest profits.
             </Quote>
+            <Typography variant="body1" component={"h6"} align="right" color={"secondary"} fontWeight={700}>
+                CEO. Eng. SAFI NASSER
+            </Typography>
         </AboutUsTemplate>
     );
 }
