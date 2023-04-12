@@ -29,37 +29,37 @@ const router = createBrowserRouter([
 ]);
 
 const theme = createTheme({
-  typography: {
-      // fontFamily: 'Lora, serif',
-      // fontFamily: 'Alkatra, cursive',
-      fontFamily: 'Montserrat Alternates, sans-serif',
-  },
-  palette: {
-    primary: {
-        main: '#0F5659',
-        background: '#3A3A3C',
+    typography: {
+        // fontFamily: 'Lora, serif',
+        // fontFamily: 'Alkatra, cursive',
+        fontFamily: 'Montserrat Alternates, sans-serif',
     },
-    secondary: {
-        main: '#FCB32B',
-    },
-    background: {
-        default: '#fff',
-    },
-    text: {
-        primary: '#FFFFFF',
-        secondary: '#FFFFFF',
-    },
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#3A3A3C',
-          color: 'white',
+    palette: {
+        primary: {
+            main: '#0F5659',
+            background: '#3A3A3C',
         },
-      },
+        secondary: {
+            main: '#FCB32B',
+        },
+        background: {
+            default: '#fff',
+        },
+        text: {
+            primary: '#FFFFFF',
+            secondary: '#FFFFFF',
+        },
     },
-  },
+    components: {
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#3A3A3C',
+                    color: 'white',
+                },
+            },
+        },
+    },
 });
 function App() {
     return (

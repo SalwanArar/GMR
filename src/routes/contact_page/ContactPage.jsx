@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, TextField, Button, Box, Link, Grid } from '@mui/material';
+import { Typography, TextField, Button, Box, Link, Grid, styled } from '@mui/material';
 import { Email, LanguageOutlined, Phone } from '@mui/icons-material';
 
 function ContactForm({icon, href, child}) {
@@ -13,6 +13,31 @@ function ContactForm({icon, href, child}) {
                 </Typography>
         </Box>
     );
+}
+
+function CssTextField({label, name, type, multiline, rows}) {
+    const CssTextField = styled(TextField)({
+        '& label': {
+            color: '#0F5659',
+        },
+        '& .MuiFilledInput-root': {
+            background: '#FFF8',
+            color: '#000',
+        }
+    });
+      
+    return (
+        <CssTextField
+        color='primary'
+        variant='filled'
+        label={ label }
+        name={ name }
+        type={ type }
+        multiline={ multiline }
+        rows={ rows }
+        fullWidth
+        required/>
+        );
 }
 
 function ContactPage() {
@@ -29,8 +54,60 @@ function ContactPage() {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 10}}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'baseline', gap: 1, mb: 10 }}>
+        <Box maxWidth={'xl'}
+        sx={{
+            alignSelf: 'center',
+            display: 'flex',
+            gap: 5,
+            flexDirection:"column",
+            justifyContent: 'start',
+            alignItems: 'start',
+            // flexFlow: 'wrap',
+            my: 10,
+            mx: {sm: 5, xs: 2}
+        }}>
+            <Box>
+                <Typography variant="h4" color={'text.primary'} gutterBottom>
+                    Contact Us
+                </Typography>
+                <Box component="form" onSubmit={handleSubmit}
+                sx={{
+                    flexBasis: 0,
+                    display: 'flex',
+                    mx:{ xs: 2, md: 'auto' },
+                    flexDirection: 'column',
+                    gap: 2,
+                    background: '#FCB32B11',
+                    p: 4,
+                    borderRadius: '8px'
+                }}>
+                    <Grid container columnSpacing={4} rowSpacing={3}>
+                        <Grid item xs={12} md={6} >
+                            {/* <TextField color='primary' label="First Name" name="firstName" variant='filled' fullWidth required/> */}
+                            <CssTextField label="First Name" name="firstName"/>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <CssTextField label="Last Name" name="lastName"/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <CssTextField label="Email" name="email" type='email'/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <CssTextField label="Phone Number" name="phoneNumber" type='tel'/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <CssTextField label="Subject" name="subject"/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <CssTextField color='secondary' label="Body" name="emailBody" fullWidth multiline required rows={ 8 }/>
+                        </Grid>
+                    </Grid>
+                    <Button type="submit" variant="contained" sx={{ alignSelf: 'flex-end' }}>
+                        Send Email
+                    </Button>
+                </Box>
+            </Box>
+            <Box width={ '25rem' } sx={{ display: 'flex', flexDirection: 'column', alignItems: 'baseline', gap: 1, mb: 10 }}>
                 <Typography variant="h4" component={'h4'} color={'text.primary'}>
                     Contact Information:
                 </Typography>
@@ -52,34 +129,6 @@ function ContactPage() {
                 icon={
                     <LanguageOutlined color={'primary'}/>
                 }/>
-            </Box>
-            <Typography variant="h4" color={'text.primary'} gutterBottom>
-                Contact Us
-            </Typography>
-            <Box component="form" maxWidth={'xl'} width={'50vw'} onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Grid container spacing={1}>
-                    <Grid item xs={12} md={6} >
-                        <TextField color='secondary' label="First Name" name="firstName" fullWidth required />
-                    </Grid>
-                    <Grid item xs={12} md={6}>
-                        <TextField label="Last Name" name="lastName" fullWidth required />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField label="Email" name="email" type='email'fullWidth required />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField label="Phone Number" name="phoneNumber" type='tel' fullWidth required />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField label="Subject" name="subject" fullWidth required />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField label="Email Body" name="emailBody" fullWidth multiline required />
-                    </Grid>
-                </Grid>
-                <Button type="submit" variant="contained" sx={{ alignSelf: 'flex-end' }}>
-                    Send Email
-                </Button>
             </Box>
         </Box>
     );
