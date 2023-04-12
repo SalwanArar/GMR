@@ -13,7 +13,8 @@ function AboutUsPage(){
             display: 'flex',
             flexDirection: 'column',
             color: 'white',
-            gap:8,
+            gap:10,
+            mx: 3,
         }}>
             <AboutUs />
             <GoalsPage />
