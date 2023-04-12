@@ -1,16 +1,36 @@
-import * as React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Container, SwipeableDrawer } from '@mui/material/';
-import Typography from '@mui/material/Typography';
+import {
+    AppBar,
+    Box,
+    Toolbar,
+    IconButton,
+    Container,
+    SwipeableDrawer,
+    Link,
+    Typography,
+    Button,
+ } from '@mui/material/';
 import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
 import Logo from '../../assets/images/logo-light.png';
 import { Clear } from '@mui/icons-material';
+import { useState } from 'react';
 
-const pages = ['Home', 'About Us', 'Contact'];
 
 function Header() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const pages = [
+        {
+            page: 'Home',
+            path: '/',
+        },
+        {
+            page: 'About Us',
+            path: '/about',
+        },
+        {
+            page: 'Contact',
+            path: '/contact',
+        },
+    ];
+    const [anchorElNav, setAnchorElNav] = useState(null);
 
     const handleOpenNavMenu = () => {
         setAnchorElNav(true);
@@ -19,6 +39,7 @@ function Header() {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
 
     return (
         <AppBar
@@ -31,14 +52,16 @@ function Header() {
         }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Box
-                    component="img"
-                    alt="Logo"
-                    src={Logo}
-                    sx={{
-                    display: { xs: 'none', md: 'flex' },
-                    maxHeight: 60,
-                    }} />
+                    <Link href="/" underline="none">
+                        <Box
+                        component="img"
+                        alt="Logo"
+                        src={Logo}
+                        sx={{
+                        display: { xs: 'none', md: 'flex' },
+                        maxHeight: 60,
+                        }} />
+                    </Link>
                     <Typography
                     variant="caption"
                     noWrap
@@ -51,7 +74,6 @@ function Header() {
                         fontFamily: 'monospace',
                         fontWeight: 700,
                         letterSpacing: '.1rem',
-                        // color: '#3A3A3C',
                         textDecoration: 'none',
                         alignSelf: 'end',
                     }}
@@ -115,24 +137,39 @@ function Header() {
                                 </Box>
                                 <Box sx={{ flexFlow: 1, alignSelf: 'center'}}>
                                     {pages.map((page) => (
-                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center">
-                                                {page}
-                                            </Typography>
-                                        </MenuItem>
+                                        
+                            <Button
+                            key={page}
+                            variant='text'
+                            onClick={handleCloseNavMenu}
+                            href={page.path}
+                            sx={{
+                                m: 2,
+                                pb: 0,
+                                color: 'white',
+                                display: 'block',
+                                textTransform: 'capitalize',
+                                borderRadius: 0,
+                            }}
+                            >
+                                {page.page}
+                            </Button>
                                     ))}
                                 </Box>
                             </Box>
                         </SwipeableDrawer>
                     </Box>
-                    <Box
-                    component="img"
-                    alt="Logo"
-                    src={Logo}
-                    sx={{
-                    display: { xs: 'flex', md: 'none' },
-                    maxHeight: 40,
-                    }} />
+                    <Link href="/" underline="none">
+                        <Box
+                        component="img"
+                        alt="Logo"
+                        src={Logo}
+                        href='/'
+                        sx={{
+                        display: { xs: 'flex', md: 'none' },
+                        maxHeight: 40,
+                        }} />
+                    </Link>
                     <Box
                     sx={{
                         flexGrow: 1,
@@ -143,6 +180,7 @@ function Header() {
                             <Button
                             key={page}
                             onClick={handleCloseNavMenu}
+                            href={page.path}
                             sx={{
                                 m: 2,
                                 pb: 0,
@@ -153,7 +191,7 @@ function Header() {
                                 borderRadius: 0,
                             }}
                             >
-                                {page}
+                                {page.page}
                             </Button>
                         ))}
                     </Box>

@@ -9,15 +9,23 @@ import Footer from './components/footer/Footer';
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles';
 import AboutUsPage from './routes/about_page/AboutUsPage';
+import NotFoundPage from './routes/ErrorPageNotFound';
+import ContactPage from './routes/contact_page/ContactPage';
+import { Box } from '@mui/material';
 const router = createBrowserRouter([
     {
         path: "/",
         element: <HomePage />,
+        errorElement: <NotFoundPage />
     },
     {
         path: "/about",
         element: <AboutUsPage />,
     },
+    {
+        path: "/contact",
+        element: <ContactPage />,
+    }
 ]);
 
 const theme = createTheme({
@@ -56,9 +64,18 @@ const theme = createTheme({
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <Header />
-                <RouterProvider router={router} />
-            <Footer />
+            <Box
+            component={'nav'}
+            minHeight={'100vh'}
+            sx={{
+                background: "#3A3A3C",
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
+                <Header />
+                    <RouterProvider router={router} />
+                <Footer />
+            </Box>
         </ThemeProvider>
     );
 }

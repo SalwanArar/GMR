@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 
 
 import IronRecycling from '../../assets/images/IronRecycling.jpeg';
@@ -79,7 +79,7 @@ function Product ({product}) {
                 variant="button"
                 sx={{
                     fontWeight: '600',
-                    textDecoration: 'underline', 
+                    textDecoration: 'underline',
                     textTransform: 'capitalize',
                 }}>
                     Learn More
@@ -91,7 +91,7 @@ function Product ({product}) {
 
 function ProductsSercvices(){
     return(
-        <Box component={'div'} sx={{ mt: 5 }}>
+        <Box component={'div'} sx={{ mt: 5, mb: 10 }}>
             <Grid container 
                 sx={{
                     background: '#a532',

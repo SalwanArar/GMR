@@ -12,8 +12,9 @@ const Footer = () => {
             width: 'auto',
             background: '#212121',
             color: '#fff',
+            mt: "auto",
             py: 4,
-            pr: 2,
+            px: 10,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center'
