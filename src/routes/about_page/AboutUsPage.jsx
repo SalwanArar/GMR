@@ -14,7 +14,8 @@ function AboutUsPage(){
             flexDirection: 'column',
             color: 'white',
             gap:10,
-            mx: 3,
+            mx: 'auto',
+            mb: 4,
         }}>
             <AboutUs />
             <GoalsPage />
