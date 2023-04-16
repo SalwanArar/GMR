@@ -1,5 +1,6 @@
 import { Circle } from "@mui/icons-material";
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import AboutUsTemplate from "./AboutUsTamplate";
 
 function GoalsPage() {
     const primaries = [
@@ -8,10 +9,8 @@ function GoalsPage() {
         "We are ready to earn this trust, convinced that we will succeed above all through our excellent work and excellent results.",
     ];
     return (
-        <Box component={ 'div' } sx={{ alignItems:'center' }}>
-            <Typography variant="h3" component={ 'h2' } textAlign={"center"} color={'secondary'}>
-                OUR GOALS
-            </Typography>
+        
+        <AboutUsTemplate title={"OUR GOALS"}>
             <List>
                 {
                     primaries.map((primary)=>
@@ -24,7 +23,7 @@ function GoalsPage() {
                     )
                 }
             </List>
-        </Box>
+        </AboutUsTemplate>
     );
 }
 
