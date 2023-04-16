@@ -3,8 +3,8 @@ import { Box } from "@mui/system";
 
 function AboutUsTemplate({title, children}) {
     return(
-        <Box component={ 'div' } sx={{ alignItems:'center' }}>
-            <Typography  variant="h3" component={ 'h2' } textAlign={"center"} color={'secondary'}>
+        <Box component={ 'div' } sx={{ alignItems:'center', mx: 3 }}>
+            <Typography  variant="h4" component={ 'h2' } textAlign={"center"} color={'secondary'}>
                 {title}
             </Typography>
             { children }
