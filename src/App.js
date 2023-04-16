@@ -2,6 +2,9 @@
 import Header from './components/header/Header';
 import {
     createBrowserRouter,
+    createRoutesFromElements,
+    Outlet,
+    Route,
     RouterProvider,
 } from "react-router-dom";  
 import HomePage from './routes/home_page/HomePage';
@@ -12,23 +15,7 @@ import AboutUsPage from './routes/about_page/AboutUsPage';
 import NotFoundPage from './routes/ErrorPageNotFound';
 import ContactPage from './routes/contact_page/ContactPage';
 import { Box } from '@mui/material';
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <HomePage />,
-        errorElement: <NotFoundPage />
-    },
-    {
-        path: "/about",
-        element: <AboutUsPage />,
-        errorElement: <NotFoundPage />
-    },
-    {
-        path: "/contact",
-        element: <ContactPage />,
-        errorElement: <NotFoundPage />
-    }
-]);
+
 
 const theme = createTheme({
     typography: {
@@ -63,22 +50,40 @@ const theme = createTheme({
         },
     },
 });
+
 function App() {
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={ <Root /> } errorElement={ <NotFoundPage /> }>
+                <Route index path='/' element={ <HomePage /> }/>
+                <Route path='/about' element={ <AboutUsPage /> }/>
+                <Route path='/contact' element={ <ContactPage /> }/>
+            </Route>
+        )
+    );
     return (
         <ThemeProvider theme={theme}>
-            <Box
-            component={'nav'}
-            minHeight={'100vh'}
-            sx={{
-                background: "#3A3A3C",
-                display: 'flex',
-                flexDirection: 'column'
-            }}>
-                <Header />
-                    <RouterProvider router={router} />
-                <Footer />
-            </Box>
+            <RouterProvider router={ router }/>
         </ThemeProvider>
+    );
+}
+
+const Root = () => {
+    return (
+        <Box
+        component={'nav'}
+        minHeight={'100vh'}
+        sx={{
+            background: "#3A3A3C",
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
+            <Header />
+            <Box component={'div'}>
+                <Outlet />
+            </Box>
+            <Footer />
+        </Box>
     );
 }
 
